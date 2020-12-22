@@ -21,12 +21,12 @@ export const reducer = (state = initialState, action: AnyAction): StateType => {
                 ...state,
                 server: {
                     ...state.server,
-                    posts: action.payload.posts,
-                    currentPost: action.payload,
+                    posts: action.payload.server.posts,
+                    currentPost: action.payload.server.currentPost,
                 },
                 client: {
                     posts: action.payload.client.posts,
-                    currentPost:action.payload[0]
+                    currentPost:action.payload.client.currentPost
                 },
             };
         }

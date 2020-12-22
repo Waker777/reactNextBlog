@@ -7,6 +7,9 @@ import { requestAllPostsAction } from '../../src/redux/asyncRequests/requestAllP
 import { getAllPostsAction } from '../../src/redux/actions/getAllPostsAction';
 import { useDispatch } from 'react-redux';
 import { CreatePost, InputTitle, InputText, ButtonCreate } from '../../src/syledComponents/content';
+
+
+
 const NewPost = () => {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
@@ -33,11 +36,7 @@ const NewPost = () => {
             <CreatePost>
                 <InputTitle onChange={handleTitle} value={title} placeholder="Title for post" />
                 <InputText onChange={handleText} value={text} placeholder="text for post" />
-                {/* <Link href="/">
-                    <a> */}
                 <ButtonCreate onClick={handleButtonCreatePost}>Create Post </ButtonCreate>
-                {/* </a>
-                </Link> */}
             </CreatePost>
         </MainLayout>
     );

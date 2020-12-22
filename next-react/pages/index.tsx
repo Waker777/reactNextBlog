@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { getOnePostAction } from '../src/redux/actions/getOnePostAction';
 
+
 const LatestPost = () => {
     const posts: PostType[] = useSelector(getAllPostsSelector);
     const dispatch = useDispatch();
