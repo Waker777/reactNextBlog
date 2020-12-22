@@ -22,20 +22,19 @@ const LatestPost = () => {
         dispatch(requestOnePostAction(getOnePostAction, postId));
         router.push(`/posts/${postId}`);
     };
-
     return (
         <MainLayout>
             <PostCard onClick={handlePostClick}>
-                <p>{posts[posts.length - 1]?.title}</p>
+                <p>{posts[posts?.length - 1]?.title}</p>
                 <hr />
-                <p>{posts[posts.length - 1]?.body}</p>
+                <p>{posts[posts?.length - 1]?.body}</p>
             </PostCard>
         </MainLayout>
     );
 };
 
 LatestPost.getInitialProps = async ({ store }) => {
-   await store.dispatch(requestAllPostsAction(getAllPostsAction));
+    await store.dispatch(requestAllPostsAction(getAllPostsAction));
 };
 
 export default wrapper.withRedux(LatestPost);

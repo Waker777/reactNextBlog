@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-// import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MainLayout } from '../../src/components/MainLayout';
 import { wrapper } from '../../src/redux/store';
 import { requestCreatePostAction } from '../../src/redux/asyncRequests/reauestCreatePost';
+import { requestAllPostsAction } from '../../src/redux/asyncRequests/requestAllPostsAction';
+import { getAllPostsAction } from '../../src/redux/actions/getAllPostsAction';
 import { useDispatch } from 'react-redux';
 import { CreatePost, InputTitle, InputText, ButtonCreate } from '../../src/syledComponents/content';
 const NewPost = () => {
@@ -24,6 +25,7 @@ const NewPost = () => {
             body: text,
         };
         dispatch(requestCreatePostAction(data));
+        dispatch(requestAllPostsAction(getAllPostsAction));
         router.push('/');
     };
     return (
