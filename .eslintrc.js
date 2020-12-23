@@ -5,10 +5,10 @@ module.exports = {
     },
     parser: '@typescript-eslint/parser',
     extends: [
-        'plugin:react/recommended',
         'airbnb',
         'standart',
-        'prettier',
+        'prettier', 
+        'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
         'plugin:prettier/recommended',
@@ -20,6 +20,11 @@ module.exports = {
         ecmaVersion: 12,
         sourceType: 'module',
     },
+    settings: {
+        react: {
+          version: "detect"
+        }
+      },
     plugins: ['react', 'prettier', 'babel', '@typescript-eslint'],
     rules: {
         'react/react-in-jsx-scope': 'off',

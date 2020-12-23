@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactHTMLElement, SyntheticEvent } from 'react';
 import { useRouter } from 'next/router';
 import { MainLayout } from '../../src/components/MainLayout';
 import { wrapper } from '../../src/redux/store';
@@ -8,6 +8,11 @@ import { getAllPostsAction } from '../../src/redux/actions/getAllPostsAction';
 import { useDispatch } from 'react-redux';
 import { CreatePost, InputTitle, InputText, ButtonCreate } from '../../src/syledComponents/content';
 
+type UserEventType = {
+    type: string;
+    value?;
+    target: string;
+}
 
 
 const NewPost = () => {
@@ -16,13 +21,14 @@ const NewPost = () => {
     const router = useRouter();
     const dispatch = useDispatch();
 
-    const handleTitle = (e) => {
+    const handleTitle: React.EventHandler<SyntheticEvent> = (e:HTMLInputElement): void => {
         setTitle(e.target.value);
     };
     const handleText = (e) => {
         setText(e.target.value);
     };
-    const handleButtonCreatePost = () => {
+    const handleButtonCreatePost = (e) => {
+        e.preventDefault();
         const data = {
             title,
             body: text,

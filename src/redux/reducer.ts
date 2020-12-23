@@ -26,7 +26,7 @@ export const reducer = (state = initialState, action: AnyAction): StateType => {
                 },
                 client: {
                     posts: action.payload.client.posts,
-                    currentPost:action.payload.client.currentPost
+                    currentPost: action.payload.client.currentPost,
                 },
             };
         }
